@@ -56,7 +56,7 @@ function takePhoto() {
 	
 	document.getElementById("videoView").hidden=true
 
-	document.getElementById("msg").visibility="visible";
+	document.getElementById("msg").style.visibility="visible";
 
   	var elem0 = document.getElementById("myProgress");
   	elem0.style.visibility="visible";
@@ -70,7 +70,7 @@ function takePhoto() {
   	function frame() {
     		if (width >= 100) {
       			clearInterval(id);
-			document.getElementById("msg").visibility="hidden";
+			document.getElementById("msg").style.visibility="hidden";
       			disp();
     		} else {
       			width++; 
@@ -80,7 +80,7 @@ function takePhoto() {
 }
 
 function takePhoto2() {
-	document.getElementById("msg").visibility="visible";
+	document.getElementById("msg").style.visibility="visible";
 
 	var elem0 = document.getElementById("myProgress");
   	elem0.style.visibility="visible";
@@ -94,7 +94,7 @@ function takePhoto2() {
   	function frame() {
     		if (width >= 100) {
       			clearInterval(id);
-			document.getElementById("msg").visibility="hidden";
+			document.getElementById("msg").style.visibility="hidden";
       			disp2();
     		} else {
       			width++; 
