@@ -2,6 +2,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <style>
+        #myProgress {
+        width: 100%;
+        background-color: #ddd;
+        visibility: hidden;
+    }
+
+    #myBar {
+        width: 1%;
+        height: 50px;
+        background-color: #4CAF50;
+        visibility: hidden;
+    }
+    </style>
     <title>MediaDevices.getUserMedia()</title>
 </head>
 <body>
@@ -16,8 +30,56 @@
 <h2>スナップショット！</h2>
 <img/>
 
-
 <canvas style="display: none" width="320" height="240"></canvas>
+
+<div id="myProgress">
+<div id="myBar"></div>
+</div>
+
 <script src="app.js"></script>
+
+<script>
+function move() {
+  var elem0 = document.getElementById("myProgress");
+  elem0.style.visibility="visible";
+  
+  var elem = document.getElementById("myBar");   
+  elem.style.visibility="visible";
+  
+  var width = 1;
+  var id = setInterval(frame, 10);
+  
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+      disp();
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+    }
+  }
+}
+
+function disp(){
+
+	// 「OK」時の処理開始 ＋ 確認ダイアログの表示
+	if(window.confirm('本当にいいんですね？')){
+
+		location.href = "example_confirm.html"; // example_confirm.html へジャンプ
+
+	}
+	// 「OK」時の処理終了
+
+	// 「キャンセル」時の処理開始
+	else{
+
+		window.alert('キャンセルされました'); // 警告ダイアログを表示
+
+	}
+	// 「キャンセル」時の処理終了
+
+}
+
+</script>
 </body>
 </html>
