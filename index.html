@@ -41,14 +41,19 @@
 <script src="app.js"></script>
 
 <script>
+
+function startCamera() {
+	document.getElementById("preView").hidden=false;
+	startVideo()
+}
+
 function takePhoto() {
 	snapshot();
 	move();
 }
 
 function move() {
-  var pv = document.getElementById("preView");
-  pv.style.hidden="true"
+  document.getElementById("preView").hidden=true
 
   var elem0 = document.getElementById("myProgress");
   elem0.style.visibility="visible";
