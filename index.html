@@ -20,9 +20,10 @@
 </head>
 <body>
 
-<button onclick="startVideo()">ビデオ開始！</button>
-<button onclick="stopVideo()">ビデオ終了！</button>
-<button onclick="takePhoto()">写真撮影！</button>
+<button onclick="startVideo()">START</button>
+<button onclick="stopVideo()">STOP</button>
+<button onclick="takePhoto()">Model Identify</button>
+<button onclick="takePhoto2()">Error Identify</button>
 
 <h2>CAMERA</h2>
 <p>Printer identifier</p>
@@ -42,36 +43,55 @@
 <script>
 
 function startCamera() {
-	//document.getElementById("videoView").hidden=false;
+	document.getElementById("videoView").hidden=false;
 	startVideo()
 }
 
 function takePhoto() {
 	snapshot();
-	move();
+	
+	document.getElementById("videoView").hidden=true
+
+  	var elem0 = document.getElementById("myProgress");
+  	elem0.style.visibility="visible";
+  
+  	var elem = document.getElementById("myBar");   
+  	elem.style.visibility="visible";
+  
+  	var width = 1;
+  	var id = setInterval(frame, 10);
+  
+  	function frame() {
+    		if (width >= 100) {
+      			clearInterval(id);
+      			disp();
+    		} else {
+      			width++; 
+      			elem.style.width = width + '%'; 
+    		}
+  	}
 }
 
-function move() {
-  //document.getElementById("videoView").hidden=true
+function takePhoto2() {
 
-  var elem0 = document.getElementById("myProgress");
-  elem0.style.visibility="visible";
+	var elem0 = document.getElementById("myProgress");
+  	elem0.style.visibility="visible";
   
-  var elem = document.getElementById("myBar");   
-  elem.style.visibility="visible";
+  	var elem = document.getElementById("myBar");   
+  	elem.style.visibility="visible";
   
-  var width = 1;
-  var id = setInterval(frame, 10);
+  	var width = 1;
+  	var id = setInterval(frame, 10);
   
-  function frame() {
-    if (width >= 100) {
-      clearInterval(id);
-      disp();
-    } else {
-      width++; 
-      elem.style.width = width + '%'; 
-    }
-  }
+  	function frame() {
+    		if (width >= 100) {
+      			clearInterval(id);
+      			disp2();
+    		} else {
+      			width++; 
+      			elem.style.width = width + '%'; 
+    		}
+  	}
 }
 
 function disp(){
@@ -79,7 +99,8 @@ function disp(){
 	// 「OK」時の処理開始 ＋ 確認ダイアログの表示
 	if(window.confirm('TSP650II？')){
 
-		location.href = "http://www.star-m.jp/eng/products/s_print/sp01_08.html"; // SMA TSP650II へジャンプ
+		location.href = "https://youtu.be/3n5MM0emgg4"; // Air-REGI Youtube へジャンプ
+		//location.href = "http://www.star-m.jp/eng/products/s_print/sp01_08.html"; // SMA TSP650II へジャンプ
 
 	}
 	// 「OK」時の処理終了
@@ -91,7 +112,26 @@ function disp(){
 
 	}
 	// 「キャンセル」時の処理終了
+}
 
+function disp2(){
+
+	// 「OK」時の処理開始 ＋ 確認ダイアログの表示
+	if(window.confirm('No Paper! Please insert new paper')){
+
+		location.href = "https://faq.airpayment.jp/hc/ja/articles/220037347-%E3%83%AC%E3%82%B7%E3%83%BC%E3%83%88%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BF%E3%83%BC%E3%81%8C%E6%95%85%E9%9A%9C%E3%81%8B%E3%81%AA-%E3%81%A8%E6%84%9F%E3%81%98%E3%81%9F%E3%82%89#01";
+		//location.href = "http://www.star-m.jp/eng/products/s_print/sp01_08.html"; // SMA TSP650II へジャンプ
+
+	}
+	// 「OK」時の処理終了
+
+	// 「キャンセル」時の処理開始
+	else{
+
+		window.alert('キャンセルされました'); // 警告ダイアログを表示
+
+	}
+	// 「キャンセル」時の処理終了
 }
 
 </script>
