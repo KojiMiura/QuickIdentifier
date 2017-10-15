@@ -15,6 +15,10 @@
         background-color: #4CAF50;
         visibility: hidden;
     }
+
+    #msg {
+	visibility: hidden;
+    }
     </style>
     <title>MediaDevices.getUserMedia()</title>
 </head>
@@ -29,7 +33,7 @@
 <p>Printer identifier</p>
 <video autoplay id=videoView width="512" height="512"></video>
 
-<h2>Model Identifying...</h2>
+<h2 id="msg">Model Identifying...</h2>
 <img id=imageView/>
 
 <canvas style="display: none" width="512" height="512"></canvas>
@@ -52,6 +56,8 @@ function takePhoto() {
 	
 	document.getElementById("videoView").hidden=true
 
+	document.getElementById("msg").visibility="visible";
+
   	var elem0 = document.getElementById("myProgress");
   	elem0.style.visibility="visible";
   
@@ -64,6 +70,7 @@ function takePhoto() {
   	function frame() {
     		if (width >= 100) {
       			clearInterval(id);
+			document.getElementById("msg").visibility="hidden";
       			disp();
     		} else {
       			width++; 
@@ -73,6 +80,7 @@ function takePhoto() {
 }
 
 function takePhoto2() {
+	document.getElementById("msg").visibility="visible";
 
 	var elem0 = document.getElementById("myProgress");
   	elem0.style.visibility="visible";
@@ -86,6 +94,7 @@ function takePhoto2() {
   	function frame() {
     		if (width >= 100) {
       			clearInterval(id);
+			document.getElementById("msg").visibility="hidden";
       			disp2();
     		} else {
       			width++; 
