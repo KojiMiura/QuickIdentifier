@@ -24,10 +24,8 @@
 <button onclick="stopVideo()">ビデオ終了！</button>
 <button onclick="takePhoto()">写真撮影！</button>
 
-<div id=preView>
 <h2>CAMERA</h2>
 <video autoplay id=videoView width="512" height="1024"></video>
-</div>
 
 <h2>Model Identifying...</h2>
 <img id=imageView/>
@@ -43,7 +41,7 @@
 <script>
 
 function startCamera() {
-	document.getElementById("preView").hidden=false;
+	document.getElementById("videoView").hidden=false;
 	startVideo()
 }
 
@@ -53,7 +51,7 @@ function takePhoto() {
 }
 
 function move() {
-  document.getElementById("preView").hidden=true
+  document.getElementById("videoView").hidden=true
 
   var elem0 = document.getElementById("myProgress");
   elem0.style.visibility="visible";
