@@ -24,13 +24,14 @@
 </head>
 <body>
 
-<button onclick="startVideo()">START</button>
-<button onclick="stopVideo()">STOP</button>
-<button onclick="takePhoto()">Model Identify</button>
-<button onclick="takePhoto2()">Error Identify</button>
+<button onclick="startVideo()">スタート</button>
+<button onclick="stopVideo()">ストップ</button>
+<button onclick="takePhoto()">機種 自動判別</button>
+<button onclick="takePhoto2()">エラー 自動判別</button>
 
-<h2>CAMERA</h2>
-<p>Printer identifier</p>
+<h2>カメラ</h2>
+<p>プリンター機能判別</p>
+<p>プリンタデザインから機種、LED点滅パターンからエラーを判定します</p>
 <video autoplay id=videoView width="512" height="512"></video>
 
 <h2 id="msg">Model Identifying...</h2>
@@ -71,7 +72,7 @@ function takePhoto() {
     		if (width >= 100) {
       			clearInterval(id);
 			document.getElementById("msg").style.visibility="hidden";
-      			disp();
+      			//disp();
     		} else {
       			width++; 
       			elem.style.width = width + '%'; 
@@ -126,7 +127,7 @@ function disp(){
 function disp2(){
 
 	// 「OK」時の処理開始 ＋ 確認ダイアログの表示
-	if(window.confirm('No Paper! Please insert new paper')){
+	if(window.confirm('用紙がありません！ 用紙を交換してください投入してください')){
 
 		location.href = "https://faq.airpayment.jp/hc/ja/articles/220037347-%E3%83%AC%E3%82%B7%E3%83%BC%E3%83%88%E3%83%97%E3%83%AA%E3%83%B3%E3%82%BF%E3%83%BC%E3%81%8C%E6%95%85%E9%9A%9C%E3%81%8B%E3%81%AA-%E3%81%A8%E6%84%9F%E3%81%98%E3%81%9F%E3%82%89#01";
 		//location.href = "http://www.star-m.jp/eng/products/s_print/sp01_08.html"; // SMA TSP650II へジャンプ
