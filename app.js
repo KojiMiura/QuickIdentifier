@@ -27,8 +27,7 @@ function startVideo() {
         .then(function (mediaStream) {
             console.log('取得したMediaStream->', mediaStream);
             videoStreamInUse = mediaStream;
-             document.querySelector('video').src = mediaStream;
-	    //document.querySelector('video').src = window.URL.createObjectURL(mediaStream);
+            document.querySelector('video').src = window.URL.createObjectURL(mediaStream);
         })
         .catch(function (error) {
             console.error('ビデオの設定に失敗、、、、', error);
