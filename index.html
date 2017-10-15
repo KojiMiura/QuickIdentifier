@@ -22,7 +22,7 @@
 
 <button onclick="startVideo()">ビデオ開始！</button>
 <button onclick="stopVideo()">ビデオ終了！</button>
-<button onclick="snapshot()">写真撮影！</button>
+<button onclick="takePhoto()">写真撮影！</button>
 
 <h2>JavaScriptでカメラ表示(・８・)</h2>
 <video autoplay width="320" height="240"></video>
@@ -39,6 +39,11 @@
 <script src="app.js"></script>
 
 <script>
+function takePhoto() {
+	snapshot();
+	move();
+}
+
 function move() {
   var elem0 = document.getElementById("myProgress");
   elem0.style.visibility="visible";
