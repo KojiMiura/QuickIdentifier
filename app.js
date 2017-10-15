@@ -53,6 +53,7 @@ function snapshot() {
     var canvasElement = document.querySelector('canvas');
     var context = canvasElement.getContext('2d');
 
-    context.drawImage(videoElement, 0, 0, videoElement.width, videoElement.height);
+    context.drawImage(videoElement, 0, 0);
+//    context.drawImage(videoElement, 0, 0, videoElement.width, videoElement.height);
     document.querySelector('img').src = canvasElement.toDataURL('image/webp');
 }
