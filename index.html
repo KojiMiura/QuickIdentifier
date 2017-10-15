@@ -24,11 +24,13 @@
 <button onclick="stopVideo()">ビデオ終了！</button>
 <button onclick="takePhoto()">写真撮影！</button>
 
-<h2>JavaScriptでカメラ表示(・８・)</h2>
-<video autoplay width="320" height="240"></video>
+<div id=preView hidden="false">
+<h2>カメラ表示</h2>
+<video autoplay id=videoView width="320" height="240"></video>
+</div>
 
 <h2>スナップショット！</h2>
-<img/>
+<img id=imageView/>
 
 <canvas style="display: none" width="320" height="240"></canvas>
 
@@ -45,6 +47,9 @@ function takePhoto() {
 }
 
 function move() {
+  var pv = document.getElementById("preView");
+  pv.style.hidden="true"
+
   var elem0 = document.getElementById("myProgress");
   elem0.style.visibility="visible";
   
