@@ -20,7 +20,7 @@ function startVideo() {
             return navigator.mediaDevices.getUserMedia({
                 audio: false,
                 video: {
-                    deviceId: videoDevices[1].deviceId
+                    deviceId: videoDevices[1].deviceId	//Tablet back sideカメラ用に無理やり… mac動作せず
                 }
             });
         })
@@ -37,7 +37,7 @@ function startVideo() {
 function stopVideo() {
     console.info('ビデオを止めるよ！');
 
-    videoStreamInUse.getVideoTracks()[0].stop();
+    videoStreamInUse.getVideoTracks()[1].stop();
 
     if (videoStreamInUse.active) {
         console.error('停止できかた、、、', videoStreamInUse);
